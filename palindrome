@@ -4,11 +4,8 @@ require 'rubygems'
 def is_palindrome?(val)
   len = val.size
   center = len / 2
-  for index in 0..center
-    #puts "#{index}: is val[#{index}] '#{val[index]}' == val[#{len-index}] '#{val[len-index]}'"
-    return false if val[index] != val[len-index-1]
-  end
-  true
+  center_index = val.size.odd? ? center : center-1
+  val[0..center_index] == val[center..(val.size-1)].reverse
 end
 
 if ARGV.size != 1

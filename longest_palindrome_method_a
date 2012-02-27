@@ -4,8 +4,12 @@ require 'rubygems'
 def is_palindrome?(val)
   len = val.size
   center = len / 2
-  center_index = val.size.odd? ? center : center-1
-  val[0..center_index] == val[center..(val.size-1)].reverse
+  val[0..(center-1)] == [center..(val.size-1)]
+  #for index in 0..center
+    #puts "#{index}: is val[#{index}] '#{val[index]}' == val[#{len-index}] '#{val[len-index]}'"
+    #return false if (/^\s$/ =~ "#{val[index..index]}") || val[index] != val[len-index-1]
+  #end
+  #true
 end
 
 def find_longest_palindrome_a(input)
@@ -20,11 +24,11 @@ def find_longest_palindrome_a(input)
 end
 
 if ARGV.size != 1
-  puts "Usage: find_longest_palindrome_assume_long (filename)"
+  puts "Usage: palindrome (filename)"
 else
   file = File.open("#{ARGV[0]}", "rb")
   contents = file.read
-  puts "Processing file..."
+  puts "Processing file... (please wait- this could take a while)"
   t1 = Time.now
   puts "LONGEST PALINDROME: #{find_longest_palindrome_a(contents)}"
   t2 = Time.now

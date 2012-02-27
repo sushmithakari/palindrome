@@ -1,0 +1,41 @@
+= Palindrome
+
+Various Ruby scripts to test for and find the longest palindrome.
+
+== How to Use
+
+Install Git and Ruby.
+
+Clone this project.
+
+  cd ~
+  git clone http://github.com/garysweaver/palindrome.git
+	
+== Examples
+
+palindrome just determines if the inputted text is a palindrome:
+
+   $ ./palindrome abba
+   IS PALINDROME: true
+   $ ./palindrome abbaa
+   IS PALINDROME: false
+   
+find_longest_palindrome is a quick method to find the longest palindrome, assuming that it is much shorter than the file:
+
+   $ ./find_longest_palindrome raven_with_palindromes_b.txt 
+   Processing file...
+   LONGEST PALINDROME: GGGGGGGGGGGHHHHHHHGGGGGGGGGGG
+   Time to process: 0.679075 sec
+   Processing rate: 97937.635754519 characters / sec
+   
+find_longest_palindrome_assume_long is a long method to find the longest palindrome, assuming that it is very long:
+
+   $ ./find_longest_palindrome_assume_long long_text.txt 
+   Processing file...
+   LONGEST PALINDROME: (long palindrome)
+   Time to process: 0.000462 sec
+   Processing rate: 10597402.5974026 characters / sec
+
+== License
+
+Copyright (c) 2012 Gary S. Weaver, released under the {MIT license}[http://github.com/garysweaver/palindrome/blob/master/LICENSE].
