@@ -1,6 +1,6 @@
 = Palindrome
 
-Various Ruby scripts to test for and find the longest palindrome.
+Various Ruby scripts for testing for and finding palindromes.
 
 == How to Use
 
@@ -20,9 +20,9 @@ palindrome just determines if the inputted text is a palindrome:
    $ ./palindrome abbaa
    IS PALINDROME: false
    
-find_longest_palindrome is a quick method to find the longest palindrome, assuming that it is much shorter than the file:
+find_longest_palindrome is a quick method to find the longest palindrome, assuming that it is not that long:
 
-   $ ./find_longest_palindrome raven_with_palindromes_b.txt 
+   $ ./find_longest_palindrome sample_text/raven_with_palindromes_b.txt 
    Processing file...
    LONGEST PALINDROME: GGGGGGGGGGGHHHHHHHGGGGGGGGGGG
    Time to process: 0.679075 sec
@@ -30,9 +30,9 @@ find_longest_palindrome is a quick method to find the longest palindrome, assumi
    
 find_longest_palindrome_assume_long is a long method to find the longest palindrome, assuming that it is very long:
 
-   $ ./find_longest_palindrome_assume_long long_text.txt 
+   $ ./find_longest_palindrome_assume_long sample_text/long_palindrome.txt 
    Processing file...
-   LONGEST PALINDROME: (long palindrome)
+   LONGEST PALINDROME: (a very long palindrome)
    Time to process: 0.000462 sec
    Processing rate: 10597402.5974026 characters / sec
 
