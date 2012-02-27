@@ -1,0 +1,18 @@
+#!/usr/bin/ruby -w
+require 'rubygems'
+
+def is_palindrome?(val)
+  len = val.size
+  center = len / 2
+  for index in 0..center
+    #puts "#{index}: is val[#{index}] '#{val[index]}' == val[#{len-index}] '#{val[len-index]}'"
+    return false if val[index] != val[len-index-1]
+  end
+  true
+end
+
+if ARGV.size != 1
+  puts "Usage: palindrome (filename)"
+else
+  puts "IS PALINDROME: #{is_palindrome?(ARGV[0])}"
+end

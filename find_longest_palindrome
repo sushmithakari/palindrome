@@ -1,0 +1,97 @@
+#!/usr/bin/ruby -w
+require 'rubygems'
+
+def is_palindrome?(val)
+  len = val.size
+  center = len / 2
+  for index in 0..center
+    #puts "#{index}: is val[#{index}] '#{val[index]}' == val[#{len-index}] '#{val[len-index]}'"
+    return false if val[index] != val[len-index-1]
+  end
+  true
+end
+
+def find_longest_palindrome_b(input)
+  len = input.size
+  if len == 1
+    return input
+  elsif len == 2
+    return input if input[0] == input[1]
+  else
+    longest = nil
+    longest_len = 0
+    1.upto(len-1) { |i|
+      if !(/^\s$/ =~ "#{input[i..i]}")
+        #print "#{input[i..i+1]}"
+        #STDOUT.flush
+        #puts "Checking #{i} of #{len}..."
+        # even length - only check if center is alphanumeric
+        checking = true
+        lower = i+1
+        upper = i
+        while checking
+          lower -= 1
+          upper += 1
+          #puts "Is input[#{lower}] '#{input[lower]}' == input[#{upper}] '#{input[upper]}'?"
+          #puts "found '#{input[lower,lower+1]}'" if input[lower] == input[upper]
+          if lower < 0 || upper > (len-1) || (/^\s$/ =~ "#{input[lower..lower]}")
+            checking = false
+          elsif input[lower] == input[upper]
+            #puts "Yes, found palindrome '#{input[lower..upper]}', but continuing to check"
+            sublen = input[lower..upper].strip.size
+            if sublen > longest_len 
+              longest_len = sublen
+              longest = input[lower..upper]
+              #puts "Found longest palindrome: #{longest}"
+            end
+          else
+            #puts "No, breaking out of loop"
+            checking = false
+          end
+        end
+        # odd length
+        checking = true
+        lower = i
+        upper = i
+        while checking
+          lower -= 1
+          upper += 1
+          #puts "'#{input[lower..lower]}' == '#{input[upper..upper]}'" if !(/^\s$/ =~ "#{input[lower..lower]}") && input[lower] == input[upper]
+          #puts "found '#{input[lower,lower+1]}'" if input[lower] == input[upper]
+        
+          if lower < 0 || upper > (len-1) || (/^\s$/ =~ "#{input[lower..lower]}")
+            checking = false
+          elsif input[lower] == input[upper]
+            #puts "*Yes, found palindrome '#{input[lower..upper]}', but continuing to check*"
+            sublen = input[lower..upper].strip.size
+            if sublen > longest_len
+              longest_len = sublen
+              longest = input[lower..upper]
+              #puts "*Found longest palindrome: #{longest}*"
+            end
+          else
+            #puts "No, breaking out of loop"
+            checking = false
+          end
+        end
+      end
+    }
+    return longest if longest_len > 0
+  end
+  '(NO PALINDROME FOUND)'
+end
+
+if ARGV.size != 1
+  puts "Usage: find_longest_palindrome (filename)"
+else
+  file = File.open("#{ARGV[0]}", "rb")
+  contents = file.read
+  puts "Processing file..."
+  t1 = Time.now
+  puts "LONGEST PALINDROME: #{find_longest_palindrome_b(contents)}"
+  t2 = Time.now
+  total = t2 - t1
+  rate = contents.size / total
+  puts "Time to process: #{total} sec"
+  puts "Processing rate: #{rate} characters / sec"
+end
