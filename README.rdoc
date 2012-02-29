@@ -36,6 +36,10 @@ find_longest_palindrome_assume_long is a quicker method to find the longest pali
    Time to process: 0.000462 sec
    Processing rate: 10597402.5974026 characters / sec
 
+== Notes
+
+For testing we use light modifications of a literary sample provided by {Gutenberg}[http://www.gutenberg.org] and we also have a lightly modified version of the {sample genetic sequence}[http://fasta.bioch.virginia.edu/cshl/stubbs/data/ZNF286A_fdr0_summits_seq.fa] provided by UVA.
+
 == License
 
 Copyright (c) 2012 Gary S. Weaver, released under the {MIT license}[http://github.com/garysweaver/palindrome/blob/master/LICENSE].
