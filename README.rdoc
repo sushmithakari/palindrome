@@ -38,7 +38,7 @@ find_longest_palindrome_assume_long is a quicker method to find the longest pali
 
 == Notes
 
-For testing we use light modifications of a literary sample provided by {Gutenberg}[http://www.gutenberg.org] and we also have a lightly modified version of the {sample genetic sequence}[http://fasta.bioch.virginia.edu/cshl/stubbs/data/ZNF286A_fdr0_summits_seq.fa] provided by UVA.
+For testing, we use light modifications of a literary sample provided by {Project Gutenberg}[http://www.gutenberg.org]. We also have a lightly modified version of the {sample genetic sequence}[http://fasta.bioch.virginia.edu/cshl/stubbs/data/ZNF286A_fdr0_summits_seq.fa] provided by  {UVA}[http://fasta.bioch.virginia.edu/fasta_www2/fasta_list2.shtml].
 
 == License
 
