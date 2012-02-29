@@ -20,7 +20,7 @@ palindrome just determines if the inputted text is a palindrome:
    $ ./palindrome abbaa
    IS PALINDROME: false
    
-find_longest_palindrome is a quick method to find the longest palindrome, assuming that it is not that long:
+find_longest_palindrome is a relatively quick method to find the longest palindrome, assuming that it is not terribly long:
 
    $ ./find_longest_palindrome sample_text/raven_with_palindromes_b.txt 
    Processing file...
@@ -28,7 +28,7 @@ find_longest_palindrome is a quick method to find the longest palindrome, assumi
    Time to process: 0.679075 sec
    Processing rate: 97937.635754519 characters / sec
    
-find_longest_palindrome_assume_long is a long method to find the longest palindrome, assuming that it is very long:
+find_longest_palindrome_assume_long is a quicker method to find the longest palindrome when the palindrome is very long (i.e. close to the size of the file):
 
    $ ./find_longest_palindrome_assume_long sample_text/long_palindrome.txt 
    Processing file...
